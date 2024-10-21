@@ -24,13 +24,13 @@ import static org.sikuli.script.Sikulix.print;
 
 
 public class LoginPage extends DriverManager {
-    static projectAllXpath dashBoardXpath = new projectAllXpath(driver);
-    static xls_Reader reader = new xls_Reader("./src/test/resources/Data.xlsx");
+     projectAllXpath dashBoardXpath = new projectAllXpath(driver);
+     xls_Reader reader = new xls_Reader("./src/test/resources/Data.xlsx");
     SoftAssert softAssert = new SoftAssert();
-    static String MyShopsValue = reader.getCellData("Login", "MyShopsDashBoard", 2);
-    static String UserNameValue = reader.getCellData("Login", "USERNAME", 2);
-    static String PasswordValue = reader.getCellData("Login", "PASSWORD", 2);
-    static String CaptchaValue = reader.getCellData("Login", "Captcha", 2);
+    String MyShopsValue = reader.getCellData("Login", "MyShopsDashBoard", 2);
+     String UserNameValue = reader.getCellData("Login", "USERNAME", 2);
+     String PasswordValue = reader.getCellData("Login", "PASSWORD", 2);
+     String CaptchaValue = reader.getCellData("Login", "Captcha", 2);
 
     // TestCase:-1
     @Given("Enter application URL in address bar")

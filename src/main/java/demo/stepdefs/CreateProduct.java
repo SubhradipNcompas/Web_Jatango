@@ -20,8 +20,6 @@ public class CreateProduct extends DriverManager {
     static projectAllXpath dashBoardXpath = new projectAllXpath(driver);
     static xls_Reader reader = new xls_Reader("./src/test/resources/Data.xlsx");
     String dirPath = System.getProperty("user.dir");
-    String imagePath = dirPath + "/autoIt/bag.jpeg";
-    String docpath = dirPath + "/autoIt/resume.doc";
     SoftAssert softAssert = new SoftAssert();
     String ProductName=reader.getCellData("Product","ProductName",2);
     String value=ProductName+ getRandombill(1000);

@@ -26,7 +26,6 @@ public class Shows extends DriverManager {
 
     static projectAllXpath dashBoardXpath = new projectAllXpath(driver);
     static xls_Reader reader = new xls_Reader("./src/test/resources/Data.xlsx");
-    String dirPath = System.getProperty("user.dir");
     SoftAssert softAssert = new SoftAssert();
     String ShowsNameDetails = reader.getCellData("Shows", "ShowsName", 2);
     String NameofShows = ShowsNameDetails + getRandom(1000);

@@ -29,8 +29,6 @@ public class projectAllXpath extends userHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public static final String invoicePattern = "[A-Z]{1}[0-9]{5,}";
-    public static final String giPattern = "[GI]{2}[0-9]{5,}";
     //*****************************************************************************************************************
     private static WebDriver driver;
     //***********************Login Page*************************************************************************************
@@ -133,28 +131,6 @@ public class projectAllXpath extends userHomePage {
         actions.moveToElement(paymentMode).click().perform();
     }
 
-    public static BigDecimal getExpectedItemGrossAmount(String unitCount, String quantity) {
-        BigDecimal uc = new BigDecimal(unitCount);
-        BigDecimal quant = new BigDecimal(quantity);
-        return uc.multiply(quant);
-    }
-
-    public static String findStringUsingRegex(String input, String regex) {
-        final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
-        final Matcher matcher = pattern.matcher(input);
-        String output = "";
-        while (matcher.find()) {
-            output = output.concat(matcher.group(0));
-        }
-        return output;
-    }
-
-    public static String getStatusText(WebElement element) {
-        System.out.println("element: " + element);
-        String statusText = element.getText();
-        return statusText;
-    }
-
     public static List<String> getDropDownValue(List<WebElement> allOptions) {
 
         List<String> allOptionText = new ArrayList<String>();
@@ -168,122 +144,11 @@ public class projectAllXpath extends userHomePage {
         return allOptionText;
     }
 
-    public static String getStringFormList(List<String> dropDownValue) {
-        int listSize = dropDownValue.size();
-
-        System.out.println("dropDownValue size: " + listSize);
-
-        int randomNumber = getRandom(listSize);
-        System.out.println("randomNumber: " + randomNumber);
-
-        String nameOfDropDown = dropDownValue.get(randomNumber);
-
-        System.out.println("nameOfDropDown: " + nameOfDropDown);
-
-        return nameOfDropDown;
-    }
-
     public static int getRandom(int max) {
         return (int) (Math.random() * max);
     }
-
-    public static String getJobIdUnfiToString(String job_iD_all_text) {
-
-        String jobId = null;
-
-        try {
-            if (job_iD_all_text != null) {
-                String[] labelJobId = job_iD_all_text.split(" ");
-                for (String a : labelJobId) {
-                    if (a.contains("UNFI-JB-")) {
-                        jobId = a;
-
-                        break;
-
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-
-        return jobId;
-
-    }
-
-    public static String getJobIdToString(String job_iD_all_text) {
-
-        String jobId = null;
-
-        try {
-            if (job_iD_all_text != null) {
-                String[] labelJobId = job_iD_all_text.split(" ");
-                for (String a : labelJobId) {
-                    if (a.contains("HFSB-JB-")) {
-                        jobId = a;
-
-                        break;
-
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-
-        return jobId;
-
-    }
-
-    public String getOfferIdToString(String Offer_id) {
-
-        String offerId = null;
-        System.out.println("Offer_id: " + Offer_id);
-        String replaceNewLine = Offer_id.replaceAll("\\n", " ");
-        try {
-            if (replaceNewLine != null) {
-                String[] labelofferId = replaceNewLine.split(" ");
-                for (String a : labelofferId) {
-                    if (a.contains("OFR-")) {
-                        offerId = a;
-
-                        break;
-
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-
-        return offerId;
-
-    }
-
     public static int getRandombill(int max) {
         return (int) (Math.random() * max);
-    }
-
-
-
-    private static BufferedImage cropImage(File filePath, int x, int y, int w,
-                                           int h) {
-
-        try {
-            BufferedImage originalImgage = ImageIO.read(filePath);
-            BufferedImage subImgage = originalImgage.getSubimage(x, y, w, h);
-
-            return subImgage;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     public void gotoTab(WebDriver driver, int tabIndex) throws InterruptedException {
@@ -293,5 +158,3 @@ public class projectAllXpath extends userHomePage {
     }
 
 }
-
-

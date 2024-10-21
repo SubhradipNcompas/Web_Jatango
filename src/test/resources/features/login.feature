@@ -3,8 +3,8 @@ Feature: Spring 1 Jatango project scenario-1
 
   Scenario: Verify whether User is able to access the application
     Given Enter application URL in address bar
-    When  Enter Username
-    Then  Enter Password
+    When Enter Username
+    Then Enter Password
     And   Click Sing_In
     Then User should be redirected to the homepage
 
